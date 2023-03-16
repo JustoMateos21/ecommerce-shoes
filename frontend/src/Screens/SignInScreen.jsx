@@ -14,10 +14,13 @@ const SignInScreen = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Axios.post("/api/users/signin", {
-        email,
-        password,
-      });
+      const { data } = await Axios.post(
+        "https://main--comforting-biscuit-a0b226.netlify.app/api/users/signin",
+        {
+          email,
+          password,
+        }
+      );
       ctxDispatch({ type: "USER_SIGNIN", payload: data });
       localStorage.setItem("userInfo", JSON.stringify(data));
       navigate("/");
