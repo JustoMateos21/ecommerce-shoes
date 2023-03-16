@@ -30,14 +30,63 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/products" element={<ShopScreen />} />
-          <Route path="/search" element={<ShopScreen />} />
+          <Route
+            path="/products"
+            element={
+              <ProtectedRoute>
+                <ShopScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <ProtectedRoute>
+                <ShopScreen />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path="/product/:slug" element={<ProductsScreen />} />
-          <Route path="/cart" element={<CartScreen />} />
-          <Route path="/checkout" element={<CheckoutScreen />} />
-          <Route path="/payment" element={<PaymentScreen />} />
-          <Route path="/orders" element={<OrdersScreen />} />
+          <Route
+            path="/product/:slug"
+            element={
+              <ProtectedRoute>
+                <ProductsScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <CartScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <CheckoutScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              <ProtectedRoute>
+                <PaymentScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <OrdersScreen />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<ErrorScreen />} />
         </Routes>
       </Router>
