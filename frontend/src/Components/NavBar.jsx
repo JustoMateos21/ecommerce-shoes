@@ -80,8 +80,8 @@ const NavBar = () => {
           {links.map((l) => (
             <Link
               key={l.id}
-              onClick={l.text === "Logout" && signout}
-              to={l.path}
+              onClick={l.text === "Logout" ? signout : () => setMenuOpen(false)}
+              to={l.text !== "Logout" && l.path}
               className="text-[#fff] font-medium text-3xl"
             >
               {l.text}

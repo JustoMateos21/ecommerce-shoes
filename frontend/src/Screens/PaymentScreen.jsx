@@ -42,7 +42,7 @@ const PaymentScreen = () => {
         {
           orderItems: cartItems,
           shippingAddress: shippingAddress,
-          paymentMethod: cart.paymentMethod,
+          paymentMethod: cart.paymentMethod || "Mercado Pago",
           itemsPrice: cart.itemsPrice,
           shippingPrice: 0,
           // taxPrice: cart.taxPrice,
