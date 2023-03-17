@@ -1,10 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  HashRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import HomeScreen from "./Screens/HomeScreen";
 import SignInScreen from "./Screens/SignInScreen";
 import SignUpScreen from "./Screens/SignUpScreen";
@@ -22,7 +17,7 @@ import ErrorScreen from "./Screens/ErrorScreen";
 function App() {
   return (
     <div className="flex  flex-col w-screen h-screen bg-gradient-to-t from-[#FFB8B8] to-[#1E1E1E]">
-      <HashRouter>
+      <BrowserRouter>
         <NavBar />
         <Routes>
           <Route path="/signin" element={<SignInScreen />} />
@@ -94,7 +89,7 @@ function App() {
           />
           <Route path="*" element={<ErrorScreen />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }

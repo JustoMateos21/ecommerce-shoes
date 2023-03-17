@@ -1,5 +1,6 @@
 {
   "name": "ecommerce-shoes",
+  "proxy": "http://localhost:4400",
   "version": "0.1.0",
   "main": "index.js",
   "private": true,
@@ -28,7 +29,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5500",
   "eslintConfig": {
     "extends": [
       "react-app"
