@@ -82,9 +82,9 @@ function App() {
           <Route
             path="/orders"
             element={
-              <ProtectedRoute>
-                <OrdersScreen />
-              </ProtectedRoute>
+              // <ProtectedRoute>
+              <OrdersScreen />
+              // </ProtectedRoute>
             }
           />
           <Route path="*" element={<ErrorScreen />} />
