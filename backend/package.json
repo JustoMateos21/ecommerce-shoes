@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "build": "npm i",
-    "dev": "nodeserver"
+    "dev": "node server"
   },
   "author": "",
   "license": "ISC",
