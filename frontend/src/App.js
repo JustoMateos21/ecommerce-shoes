@@ -1,12 +1,16 @@
 import "./App.css";
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  HashRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 import HomeScreen from "./Screens/HomeScreen";
 import SignInScreen from "./Screens/SignInScreen";
 import SignUpScreen from "./Screens/SignUpScreen";
 import ProductsScreen from "./Screens/ProductsScreen";
 import NavBar from "./Components/NavBar";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import StoreProvider from "./store";
 import ShopScreen from "./Screens/ShopScreen";
 import CartScreen from "./Screens/CartScreen";
 import CheckoutScreen from "./Screens/CheckoutScreen";
@@ -17,7 +21,7 @@ import ErrorScreen from "./Screens/ErrorScreen";
 function App() {
   return (
     <div className="flex  flex-col w-screen h-screen bg-gradient-to-t from-[#FFB8B8] to-[#1E1E1E]">
-      <BrowserRouter>
+      <Router>
         <NavBar />
         <Routes>
           <Route path="/signin" element={<SignInScreen />} />
@@ -89,7 +93,7 @@ function App() {
           />
           <Route path="*" element={<ErrorScreen />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
