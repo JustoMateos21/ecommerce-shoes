@@ -1,6 +1,6 @@
 {
   "name": "ecommerce-shoes",
-  "proxy": "http://localhost:5500",
+  "proxy": "https://ecommerce-shoes-api.onrender.com",
   "version": "0.1.0",
   "main": "index.js",
   "private": true,
