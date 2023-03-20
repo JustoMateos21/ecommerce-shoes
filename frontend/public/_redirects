@@ -1,1 +1,1 @@
-/api/* https://ecommerce-shoes-api.onrender.com/:splat 
+/api/* https://ecommerce-shoes-api.onrender.com/api/:splat 
