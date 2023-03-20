@@ -124,8 +124,8 @@ orderRouter.post("/payment/status", async (req, res) => {
       const order = await Order.findById(orderIdentification);
       order.isPaid = true;
       const updatedOrder = await order.save();
+      console.log("orderUPDATED");
     }
-    console.log(data);
   } catch (e) {
     console.log(e);
   }
