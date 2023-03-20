@@ -106,30 +106,31 @@ orderRouter.post("/payment/status", async (req, res) => {
   const { body, query } = req;
 
   // GET PAYMENT STATUS
-  try {
-    const { data } = await axios.get(
-      `https://api.mercadopago.com/v1/payments/${body.data.id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.MERCADOPAGO_API}`,
-        },
+  if (body.data.id !== "undefined") {
+    try {
+      const { data } = await axios.get(
+        `https://api.mercadopago.com/v1/payments/${body.data.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.MERCADOPAGO_API}`,
+          },
+        }
+      );
+      if (
+        data.external_reference === orderIdentification &&
+        data.status === "approved"
+      ) {
+        console.log(orderIdentification);
+
+        const order = await Order.findById(orderIdentification);
+        order.isPaid = true;
+        const updatedOrder = await order.save();
+        console.log("orderUPDATED");
       }
-    );
-    if (
-      data.external_reference === orderIdentification &&
-      data.status === "approved"
-    ) {
-      console.log(orderIdentification);
-
-      const order = await Order.findById(orderIdentification);
-      order.isPaid = true;
-      const updatedOrder = await order.save();
-      console.log("orderUPDATED");
+    } catch (e) {
+      console.log(e);
     }
-  } catch (e) {
-    console.log(e);
   }
-
   console.log(body, query);
   res.send(body);
 });
