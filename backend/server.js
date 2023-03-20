@@ -6,7 +6,7 @@ import productRouter from "./routes/productRouter.js";
 import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
 import orderRouter from "./routes/orderRouter.js";
-
+import cors from "cors";
 var app = express();
 
 dotenv.config();
@@ -22,7 +22,7 @@ mongoose
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 app.get("/api", (req, res) => {
   res.send("api");
 });
