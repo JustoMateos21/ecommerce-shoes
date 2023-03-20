@@ -3,11 +3,13 @@ import express from "express";
 import Order from "../models/orderModel.js";
 import { isAuth } from "../utils.js";
 import expressAsyncHandler from "express-async-handler";
-
+import cors from "cors";
 import PaymentController from "../Controllers/PaymentController.js";
 import axios from "axios";
 
 const orderRouter = express.Router();
+
+orderRouter.use(cors());
 
 let orderIdentification;
 orderRouter.post("/", async (req, res) => {
@@ -50,7 +52,6 @@ orderRouter.get("/:id", async (req, res) => {
     console.log(e);
   }
 });
-
 orderRouter.get("/:id/payment", async (req, res) => {
   const orderItems = [];
   try {
