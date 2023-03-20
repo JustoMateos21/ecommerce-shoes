@@ -26,7 +26,7 @@ orderRouter.post("/", async (req, res) => {
 
     const order = await newOrder.save();
     res.status(201).send({ message: "New Order Created", order });
-    orderIdentification = Object.toString(order._id);
+    orderIdentification = order._id;
   } catch (e) {
     console.log(JSON.stringify(e.message));
   }
@@ -36,8 +36,12 @@ orderRouter.get(
   "/mine",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const orders = await Order.find({ user: req.user._id });
-    res.send(orders);
+    try {
+      const orders = await Order.find({ user: req.user._id });
+      res.send(orders);
+    } catch (e) {
+      console.log(e.message);
+    }
   })
 );
 
