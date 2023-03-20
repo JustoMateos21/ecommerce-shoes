@@ -82,7 +82,7 @@ orderRouter.get("/:id/payment", async (req, res) => {
             success: "",
           },
           external_reference: `${orderIdentification}`,
-          notification_url: `https://67fc-201-212-116-134.sa.ngrok.io/api/orders/payment/status`,
+          notification_url: `https://ecommerce-shoes-api.onrender.com/api/orders/payment/status`,
         };
 
         const payment = await axios.post(url, body, {
