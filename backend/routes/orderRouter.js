@@ -119,6 +119,8 @@ orderRouter.post("/payment/status", async (req, res) => {
       data.external_reference === orderIdentification &&
       data.status === "approved"
     ) {
+      console.log(orderIdentification);
+
       const order = await Order.findById(orderIdentification);
       order.isPaid = true;
       const updatedOrder = await order.save();
