@@ -26,7 +26,7 @@ orderRouter.post("/", async (req, res) => {
 
     const order = await newOrder.save();
     res.status(201).send({ message: "New Order Created", order });
-    orderIdentification = order._id;
+    orderIdentification = Object.toString(order._id);
   } catch (e) {
     console.log(JSON.stringify(e.message));
   }
