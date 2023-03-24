@@ -19,6 +19,7 @@ const CheckoutScreen = () => {
   const navigate = useNavigate();
   const { cart } = state;
   const { shippingAddress } = cart;
+
   useEffect(() => {
     setFullName(shippingAddress.fullName);
     setAddress(shippingAddress.address);
